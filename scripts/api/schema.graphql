@@ -1,0 +1,17 @@
+type Members {
+  id: String!
+  name: String!
+}
+
+type Mutation {
+  createMembers(name: String!): Members!
+}
+
+type Query {
+  listMembers: [Members]!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

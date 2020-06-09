@@ -8,7 +8,12 @@ variable "appsync_name" {
   description = "Name of the AppSync instance, and also used to prefix resources"
 }
 
-variable "datasource_name" {
+variable "datasource_members" {
   default     = "excrum_members_table"
-  description = "Name of the data source to be created"
+  description = "Storing scrum members"
+}
+
+variable "datasource_teams" {
+  default     = "excrum_teams_table"
+  description = "Storing scrum teams"
 }

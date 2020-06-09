@@ -1,14 +1,33 @@
 type Members {
-  id: String!
+  id: ID!
   name: String!
+  group: String!
+}
+
+input CreateMembersInput {
+  name: String!
+  group: String!
+}
+
+input CreateTeamsInput {
+  name: String!
+  members: String!
+}
+
+type Teams {
+  id: ID!
+  name: String!
+  members: String!
 }
 
 type Mutation {
-  createMembers(name: String!): Members!
+  createMembers(input: CreateMembersInput): Members!
+  createTeams(input: CreateTeamsInput): Teams!
 }
 
 type Query {
   listMembers: [Members]!
+  listTeams: [Teams]!
 }
 
 schema {

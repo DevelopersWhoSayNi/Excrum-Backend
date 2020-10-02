@@ -17,3 +17,8 @@ variable "datasource_teams" {
   default     = "excrum_teams_table"
   description = "Storing scrum teams"
 }
+
+variable "datasource_sprints" {
+  default     = "excrum_sprints_table"
+  description = "Storing scrum sprints"
+}

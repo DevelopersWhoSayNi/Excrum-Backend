@@ -21,3 +21,15 @@ resource "aws_dynamodb_table" "teams" {
     type = "S"
   }
 }
+
+resource "aws_dynamodb_table" "sprints" {
+  name           = var.datasource_sprints
+  read_capacity  = 1
+  write_capacity = 1
+  hash_key       = "id"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+}

@@ -8,7 +8,7 @@ data "local_file" "schema" {
 
 resource "aws_cloudformation_stack" "api_schema" {
   depends_on = [aws_appsync_datasource.members]
-  name       = "${var.appsync_name}-schema"
+  name       = "${local.appsync_name}-schema"
 
   parameters = {
     graphQlApiId  = aws_appsync_graphql_api.excrum.id

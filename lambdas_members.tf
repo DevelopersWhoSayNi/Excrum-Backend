@@ -91,7 +91,7 @@ data "archive_file" "members_lambda_archive_file" {
   output_path = "${path.module}/lambda_functions/members_lambda.zip"
 }
 
-module "lambda_app_cloudwatch" {
+module "lambda_app_cloudwatch_members" {
   source                          = "./cloudwatch_lambda_monitoring"
   app_name                        = local.excrum_members_lambda
   log_group_name                  = "/aws/lambda/${local.excrum_members_lambda}"

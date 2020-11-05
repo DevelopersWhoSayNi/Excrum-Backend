@@ -52,5 +52,5 @@ variable "iterator_age_alarm_period_secs" {
 }
 
 variable "aws_cloudwatch_metric_alarm_namespace" {
-  default = "DSCI"
+  default = "Excrum"
 }

@@ -8,10 +8,10 @@ def lambda_handler(event, context):
     member_table_name = os.environ['MEMBER_TABLE_NAME']
     members_table = boto3.resource('dynamodb').Table(member_table_name)
     try:
-        if 'id' not in event and event['id'] is not "null":
+        if 'id' not in event:
             return {
                 'statusCode': 400,
-                'body': json.dumps('Id is mandatory!')
+                'body': 'Id is mandatory!'
             }
         else:
             member = members_table.scan(FilterExpression=Attr('id').eq(event['id']))

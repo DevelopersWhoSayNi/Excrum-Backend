@@ -1,4 +1,4 @@
-resource "aws_lambda_function" "excrum_sprint_lambda" {
+resource "aws_lambda_function" "excrum_sprints_lambda" {
   function_name    = local.excrum_sprint_lambda
   description      = "Lambda that retrieves the team sprint"
   role             = aws_iam_role.iam_excrum_sprint_lambda.arn

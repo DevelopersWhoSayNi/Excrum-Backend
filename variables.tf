@@ -80,3 +80,15 @@ variable "log_group_retention_days" {
 variable "bucket_name" {
   default = "excrum.resources"
 }
+variable "members_resource_name" {
+  default = "members"
+}
+variable "sprints_resource_name" {
+  default = "sprints"
+}
+variable "teams_resource_name" {
+  default = "teams"
+}
+variable "excrum_stage" {
+  default = "dev"
+}

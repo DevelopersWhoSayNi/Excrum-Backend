@@ -1,5 +1,5 @@
 locals {
-  name_prefix               = "mari"
+  name_prefix               = "prod"
   appsync_name              = "${local.name_prefix}${var.appsync_name}"
   datasource_members        = "${local.name_prefix}_${var.datasource_members}"
   datasource_teams          = "${local.name_prefix}_${var.datasource_teams}"

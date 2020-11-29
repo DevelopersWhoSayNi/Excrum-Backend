@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     sprints_table = boto3.resource('dynamodb').Table(sprints_table_name)
     try:
         if event['action'] == 'CreateNewSprint' or event['action'] == 'UpdateSprintDetails':
-            sprints_id = sprints_table.put_item(Item={'id' : event["sprintDetails"]["sprintId"],
+            sprints_id = sprints_table.put_item(Item={'id' : event["sprintDetails"]["id"],
                 "capacityDetails": event["sprintDetails"]["capacityDetails"],
                 "startDate": event["sprintDetails"]["startDate"],
                 "endDate": event["sprintDetails"]["endDate"],

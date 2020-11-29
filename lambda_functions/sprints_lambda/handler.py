@@ -22,6 +22,17 @@ def lambda_handler(event, context):
         elif event['action'] == 'DeleteSprint':
             sprints_id = 'X'
             print('TODO')
+        elif event['action'] == 'GetTeamSprints':
+            sprintsResult = sprints_table.scan(FilterExpression=Attr('team.teamID').eq(event['teamId']))
+            return sprintsResult['Items']
+        elif event['action'] == 'GetSprint':
+            sprintResult = sprints_table.get_item(
+                Key={
+                    'id': event['sprintID'].upper()
+                }
+            )
+            return sprintResult['Item']
+
 
     
         return {

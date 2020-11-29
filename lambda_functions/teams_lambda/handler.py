@@ -10,14 +10,13 @@ def lambda_handler(event, context):
     teams_table_name = os.environ['TEAMS_TABLE_NAME']
     teams_table = boto3.resource('dynamodb').Table(teams_table_name)
     try:
-        if 'id' not in event:
-            return {
-                'statusCode': 400,
-                'body': 'id is mandatory!'
-            }
+        if 'teamId' not in event or not event['teamId'] :
+            teams = teams_table.scan()
+            return teams["Items"]
         else:
-            teams = teams_table.scan(FilterExpression=Attr('id').eq(event['id']))
-            return teams["Items"][0]
+            team = teams_table.scan(FilterExpression=Attr('id').eq(event['teamId']))
+            return team["Items"][0]
+            
 
     except Exception as general_exception:
         print(general_exception)

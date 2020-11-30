@@ -25,11 +25,11 @@ resource "aws_cloudformation_stack" "list_members_resolver" {
     aws_cloudformation_stack.api_schema
   ]
 
-  name = "${var.appsync_name}-list-members-resolver"
+  name = "${local.appsync_name}-list-members-resolver"
 
   parameters = {
     graphQlApiId            = aws_appsync_graphql_api.excrum.id
-    dataSourceName          = var.datasource_members
+    dataSourceName          = local.datasource_members
     fieldName               = "listMembers"
     typeName                = "Query"
     requestMappingTemplate  = data.local_file.list_members_request_mapping.content
@@ -54,11 +54,11 @@ resource "aws_cloudformation_stack" "create_members_resolver" {
     aws_appsync_datasource.members,
     aws_cloudformation_stack.api_schema
   ]
-  name = "${var.appsync_name}-create-members-resolver"
+  name = "${local.appsync_name}-create-members-resolver"
 
   parameters = {
     graphQlApiId            = aws_appsync_graphql_api.excrum.id
-    dataSourceName          = var.datasource_members
+    dataSourceName          = local.datasource_members
     fieldName               = "createMembers"
     typeName                = "Mutation"
     requestMappingTemplate  = data.local_file.create_member_source_request_mapping.content
@@ -84,11 +84,11 @@ resource "aws_cloudformation_stack" "list_teams_resolver" {
     aws_cloudformation_stack.api_schema
   ]
 
-  name = "${var.appsync_name}-list-teams-resolver"
+  name = "${local.appsync_name}-list-teams-resolver"
 
   parameters = {
     graphQlApiId            = aws_appsync_graphql_api.excrum.id
-    dataSourceName          = var.datasource_teams
+    dataSourceName          = local.datasource_teams
     fieldName               = "listTeams"
     typeName                = "Query"
     requestMappingTemplate  = data.local_file.list_teams_request_mapping.content
@@ -113,11 +113,11 @@ resource "aws_cloudformation_stack" "create_team_resolver" {
     aws_appsync_datasource.teams,
     aws_cloudformation_stack.api_schema
   ]
-  name = "${var.appsync_name}-create-teams-resolver"
+  name = "${local.appsync_name}-create-teams-resolver"
 
   parameters = {
     graphQlApiId            = aws_appsync_graphql_api.excrum.id
-    dataSourceName          = var.datasource_teams
+    dataSourceName          = local.datasource_teams
     fieldName               = "createTeams"
     typeName                = "Mutation"
     requestMappingTemplate  = data.local_file.create_team_source_request_mapping.content

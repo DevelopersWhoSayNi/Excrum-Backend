@@ -1,5 +1,5 @@
 resource "aws_iam_role" "api" {
-  name = "${var.appsync_name}-role"
+  name = "${local.appsync_name}-role"
 
   assume_role_policy = <<EOF
 {
@@ -18,7 +18,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "api_to_dynamodb_policy" {
-  name = "${var.appsync_name}_api_dynamodb_policy"
+  name = "${local.appsync_name}_api_dynamodb_policy"
   role = aws_iam_role.api.id
 
   policy = <<EOF
@@ -32,8 +32,8 @@ resource "aws_iam_role_policy" "api_to_dynamodb_policy" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${aws_dynamodb_table.members.arn}",
-        "${aws_dynamodb_table.teams.arn}"
+        "${aws_dynamodb_table.members_dynamodb.arn}",
+        "${aws_dynamodb_table.teams_dynamodb.arn}"
       ]
     }
   ]

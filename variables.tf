@@ -36,7 +36,7 @@ variable "memory_size" {
 }
 
 variable "timeout" {
-  default = "3"
+  default = "30"
 }
 
 variable "default_tags" {

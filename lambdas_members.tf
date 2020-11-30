@@ -62,8 +62,7 @@ data "aws_iam_policy_document" "lambda_invoke_excrum_members_iam_policy_document
     effect = "Allow"
 
     actions = [
-      "dynamodb:GetItem",
-      "dynamodb:Scan"
+      "dynamodb:*"
     ]
 
     resources = [

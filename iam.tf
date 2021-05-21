@@ -40,3 +40,18 @@ resource "aws_iam_role_policy" "api_to_dynamodb_policy" {
 }
 EOF
 }
+
+data "aws_iam_policy_document" "lambda_assume_role" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "sts:AssumeRole",
+    ]
+
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
+}

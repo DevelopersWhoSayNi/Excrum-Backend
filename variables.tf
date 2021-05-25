@@ -1,11 +1,6 @@
 variable "aws_region" {
   default     = "eu-west-1"
-  description = "Region to create the AppSync resources under"
-}
-
-variable "appsync_name" {
-  default     = "Excrum"
-  description = "Name of the AppSync instance, and also used to prefix resources"
+  description = "Region to create the Excrum resources under"
 }
 
 variable "datasource_members" {
@@ -78,7 +73,7 @@ variable "log_group_retention_days" {
 }
 
 variable "bucket_name" {
-  default = "excrum.resources"
+  default = "excrum-prod"
 }
 variable "members_resource_name" {
   default = "members"
